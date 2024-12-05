@@ -1,9 +1,9 @@
-name: Build and Publish storybook to GitHub Pages
+name: Build and Publish Storybook to GitHub Pages
 
 on:
   push:
     branches:
-      - "main"
+      - 'master'
 
 permissions:
   contents: read
@@ -16,9 +16,20 @@ jobs:
       name: github-pages
       url: ${{ steps.build-publish.outputs.page_url }}
     runs-on: ubuntu-latest
+    # Job steps
     steps:
-    - id: build-publish
-      uses: oscaralcocebaVass/oscaralcocebaVass.github.io@v1.0.0
+      # Manual Checkout
+      - uses: actions/checkout@v3
+ 
+      # Set up Node
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'    
+      #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
+      -id: build-publish
+      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.1
       with:
         install_command: yarn install
         build_command: yarn run build-storybook
+        path: storybook-static
+        checkout: false # default: true
