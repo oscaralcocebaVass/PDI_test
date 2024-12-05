@@ -24,5 +24,4 @@ jobs:
         with:
             install_command: yarn install
             build_command: yarn run build-storybook
-            path: storybook-static
             checkout: false # default: true
