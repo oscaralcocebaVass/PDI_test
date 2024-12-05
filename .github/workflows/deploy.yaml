@@ -19,3 +19,6 @@ jobs:
     steps:
     - id: build-publish
       uses: oscaralcocebaVass/oscaralcocebaVass.github.io@v1.0.0
+      with:
+        install_command: yarn install
+        build_command: yarn run build-storybook
