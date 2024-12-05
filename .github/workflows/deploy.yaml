@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: oscaralcocebaVass.github.io
+        working-directory: ./
     # Job steps
     steps:
       #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
