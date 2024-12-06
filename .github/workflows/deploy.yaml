@@ -1,31 +1,22 @@
-name: Build and Publish Storybook to GitHub Pages
+# ./github/workflows/deploy-storybook.yml
 
 on:
   push:
     branches:
-      - 'master'
-
+      - "storybook" # change to the branch you wish to deploy from
 permissions:
   contents: read
   pages: write
   id-token: write
-
 jobs:
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.build-publish.outputs.page_url }}
     runs-on: ubuntu-latest
-    # defaults:
-      # run:
-        # working-directory: ./
-    # Job steps
     steps:
-      #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
-      - id: build-publish
-        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
-        with:
-            path: dist/storybook
-            install_command: yarn install
-            build_command: yarn run build-storybook
-            #checkout: false # default: true
+    - id: build-publish
+      uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+      with:
+        path: storybook-static
+        install_command: npm install
