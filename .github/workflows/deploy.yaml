@@ -5,7 +5,7 @@ on:
   # Event for the workflow to run on
   push:
     branches:
-      - 'master' # Replace with the branch you want to deploy from
+      - 'main' # Replace with the branch you want to deploy from
 
 permissions:
   contents: read
@@ -30,6 +30,5 @@ jobs:
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.1
         with:
           install_command: npm ci # default: npm ci
-          build_command: npm run build-storybook # default: npm run build-storybook
-          path: storybook-static # default: dist/storybook
-          checkout: false # default: true
+          # build_command: npm run build-storybook # default: npm run build-storybook
+          
