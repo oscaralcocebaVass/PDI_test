@@ -16,9 +16,9 @@ jobs:
       name: github-pages
       url: ${{ steps.build-publish.outputs.page_url }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
+    # defaults:
+      # run:
+        # working-directory: ./
     # Job steps
     steps:
       #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
